@@ -1,0 +1,104 @@
+﻿@model SalesViewModel
+
+@section title {
+    <div class="row">
+        <div class="col-7"><h3>Cashier's Console</h3></div>
+        <div class="col-2"><label for="cashier">Cashier Name:</label></div>
+        <div class="col-3">
+            @* Display Cashier's name here *@
+            @User?.Identity?.Name
+        </div>
+    </div>    
+}
+
+<br />
+<div class="row">
+    <div class="col-4">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        @* Category selection *@
+        <select asp-for="SelectedCategoryId" class="form-control">
+            <option>- Please Select -</option>
+            @if (Model.Categories != null && Model.Categories.Count() > 0)
+            {
+                @foreach (var cat in Model.Categories)
+                {
+                    <option value="@cat.CategoryId">@cat.Name</option>
+                }
+            }
+        </select>
+        <br />
+        <div id="productsPartial">
+            @* Product List *@
+        </div>
+        <br />
+        <div id="productDetailPartial">
+            @* Product Details *@
+        </div>
+        @* Sales form *@
+        <form method="post" asp-controller="sales" asp-action="sell" id="formSale">
+            <input asp-for="SelectedProductId" type="hidden" />
+            <div class="form-group">
+                <label asp-for="QuantityToSell"></label>
+                <input asp-for="QuantityToSell" class="form-control" type="number" min="1" />
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit" />
+            </div>
+        </form>
+    </div>
+    <div class="col">
+        @await Component.InvokeAsync("Transactions", "Cashier1")
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(function () {
+
+            // Initialize the form
+            $("#formSale").hide();
+            $("#QuantityToSell").val("");
+
+            // Load the products if category is already selected
+            var selectedCategoryId = $("#SelectedCategoryId").val();
+            if (selectedCategoryId > 0) {
+                loadProducts(selectedCategoryId);
+            }
+
+            // Handle category selection
+            $("#SelectedCategoryId").on("change", function () {
+                loadProducts($(this).val())
+            });
+
+            $("#productsPartial").on('click', '.product-row', function () {
+
+                // Highlight the row selected
+                $('.product-row').removeClass('highlight');
+                $(this).addClass('highlight');
+
+                // Get the product ID from the "product-id" attribute of the clicked row
+                var productId = $(this).attr('product-id');
+
+                // Load the details of the product in a partial view                
+                $("#productDetailPartial").load("/sales/SellProductPartial", { productId: productId});
+
+                if (productId > 0) {
+                    $("#SelectedProductId").val(productId);
+                    $("#formSale").show();
+                }
+                else {
+                    $("#SelectedProductId").val("");
+                    $("#formSale").hide();
+                }
+            });
+
+        });
+
+        function loadProducts(categoryId) {
+            $("#productsPartial").load("/sales/ProductsByCategoryPartial", { categoryId: categoryId });
+            $("#productDetailPartial").html("");
+            $("#formSale").hide();
+        }
+    </script>    
+}

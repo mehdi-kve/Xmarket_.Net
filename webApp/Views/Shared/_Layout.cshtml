@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Cryptox</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a class="navbar-brand p-1 text-bg-primary rounded" href="#">
+                    Cryptox
+                </a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a class="nav-link px-2 text-white" asp-controller="home" asp-action="index">Home</a></li>
+                    <li><a class="nav-link px-2 text-white" asp-controller="categories" asp-action="index">Categories</a></li>
+                    <li><a class="nav-link px-2 text-white" asp-controller="sales" asp-action="index">Sell</a></li>
+                    <li><a class="nav-link px-2 text-white" asp-controller="products" asp-action="index">Product</a></li>
+                    <li><a class="nav-link px-2 text-white" asp-controller="transactions" asp-action="index">Transactions</a></li>
+                </ul>
+
+                <div class="text-end">
+                    <button type="button" class="btn btn-primary">Connect wallet</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div>
+            @RenderSection("title")
+        </div>
+        <div >
+            @RenderBody()
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

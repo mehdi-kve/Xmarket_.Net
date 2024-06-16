@@ -1,0 +1,19 @@
+@model CoreBusiness.Category
+
+@section title 
+{
+    @if (Model.Name != null)
+    {
+        <h1>Categories : @Model.Name</h1>
+    }else
+    {
+        <h1>Category</h1>
+    }
+}
+
+@if (Model != null)
+{
+    <partial name="_Category" model="@Model" />    
+}
+
+
