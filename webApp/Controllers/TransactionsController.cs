@@ -6,6 +6,7 @@ using webApp.ViewModels;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class TransactionsController : Controller
     {
         private readonly ISearchTransactionsUseCase searchTransactionsUseCase;

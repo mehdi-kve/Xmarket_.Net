@@ -1,4 +1,5 @@
 ﻿using CoreBusiness;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UseCases;
 using UseCases.CategoriesUseCases;
@@ -8,6 +9,7 @@ using webApp.ViewModels;
 
 namespace WebApp.Controllers
 {
+    [Authorize(Policy = "Inventory")]
     public class ProductsController : Controller
     {
         private readonly IAddProductUseCase addProductUseCase;

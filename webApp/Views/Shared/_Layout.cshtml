@@ -23,17 +23,15 @@
                     <li><a class="nav-link px-2 text-white" asp-controller="products" asp-action="index">Product</a></li>
                     <li><a class="nav-link px-2 text-white" asp-controller="transactions" asp-action="index">Transactions</a></li>
                 </ul>
+                <partial name="_LoginPartial" />
 
-                <div class="text-end">
-                    <button type="button" class="btn btn-primary">Connect wallet</button>
-                </div>
             </div>
         </div>
     </header>
 
     <div class="container">
         <div>
-            @RenderSection("title")
+            @RenderSection("title", false)
         </div>
         <div >
             @RenderBody()

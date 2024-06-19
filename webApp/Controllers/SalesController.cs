@@ -9,6 +9,7 @@ using webApp.ViewModels;
 
 namespace WebApp.Controllers
 {
+    [Authorize(Policy = "Cashiers")]
     public class SalesController : Controller
     {
         private readonly IViewCategoriesUseCase viewCategoriesUseCase;
