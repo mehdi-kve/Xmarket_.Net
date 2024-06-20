@@ -9,7 +9,7 @@ using webApp.ViewModels;
 
 namespace WebApp.Controllers
 {
-    [Authorize]
+    //[Authorize] disabled manually
     public class SalesController : Controller
     {
         private readonly IViewCategoriesUseCase viewCategoriesUseCase;

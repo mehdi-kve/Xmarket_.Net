@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Controllers
 {
-    [Authorize]
+    //[Authorize] disables
     public class CategoriesController : Controller
     {
         private readonly IViewCategoriesUseCase viewCategoriesUseCase;

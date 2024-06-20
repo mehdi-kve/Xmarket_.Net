@@ -7,9 +7,9 @@ namespace Plugins.DataStore.InMemory
     {
         private  List<Category> _categories = new List<Category>()
         {
-            new Category { CategoryId = 1, Name = "Beverage", Description = "Beverage" },
-            new Category { CategoryId = 2, Name = "Bakery", Description = "Bakery" },
-            new Category { CategoryId = 3, Name = "Meat", Description = "Meat" }
+            new Category { CategoryId = 1, Name = "Smart Phone", Description = "Smart Phone" },
+            new Category { CategoryId = 2, Name = "Laptop", Description = "Laptop" },
+            new Category { CategoryId = 3, Name = "Headphone", Description = "Headphone" }
         };
 
         public  void AddCategory(Category category)

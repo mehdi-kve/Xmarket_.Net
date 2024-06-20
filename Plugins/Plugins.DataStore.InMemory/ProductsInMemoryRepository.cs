@@ -12,10 +12,10 @@ namespace Plugins.DataStore.InMemory
     {
         private  List<Product> _products = new List<Product>()
         {
-            new Product { ProductId = 1, CategoryId = 1, Name = "Iced Tea", Quantity = 100, Price = 1.99 },
-            new Product { ProductId = 2, CategoryId = 1, Name = "Canada Dry", Quantity = 200, Price = 1.99 },
-            new Product { ProductId = 3, CategoryId = 2, Name = "Whole Wheat Bread", Quantity = 300, Price = 1.50 },
-            new Product { ProductId = 4, CategoryId = 2, Name = "White Bread", Quantity = 300, Price = 1.50 }
+            new Product { ProductId = 1, CategoryId = 2, Name = "ASUS E210", Quantity = 100, Price = 100.99 },
+            new Product { ProductId = 2, CategoryId = 3, Name = "BLACKSHARK", Quantity = 200, Price = 98.99 },
+            new Product { ProductId = 3, CategoryId = 1, Name = "Sony Xperai Z", Quantity = 300, Price = 350.50 },
+            new Product { ProductId = 4, CategoryId = 2, Name = "Acer E1", Quantity = 300, Price = 450.50 }
         };
 
         private readonly ICategoryRepository categoryRepository;
