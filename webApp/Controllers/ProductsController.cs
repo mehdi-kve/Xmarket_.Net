@@ -9,7 +9,7 @@ using webApp.ViewModels;
 
 namespace WebApp.Controllers
 {
-    [Authorize(Policy = "Inventory")]
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly IAddProductUseCase addProductUseCase;

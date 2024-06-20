@@ -9,7 +9,8 @@
         <div class="row">
             <div class="col-2">
                 <label asp-for="CashierName"></label>
-                <input type="text" class="form-control" asp-for="CashierName" />
+                @*<input type="text" class="form-control" asp-for="CashierName" />*@
+                <input type="text" class="form-control" asp-for="CashierName" readonly value="Cashier1" />
             </div>
             <div class="col-3">
                 <label asp-for="StartDate"></label>

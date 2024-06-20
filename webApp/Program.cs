@@ -17,6 +17,7 @@ builder.Services.AddDbContext<AccountContext>(options =>
 
 builder.Services.AddAuthorization( options => 
 {
+    // Access Controle Disabled 
     options.AddPolicy("Inventory", p => p.RequireClaim("Position", "Inventory"));
     options.AddPolicy("Cashiers", p => p.RequireClaim("Position", "Cashiers"));
 });
